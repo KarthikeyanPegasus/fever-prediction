@@ -10,10 +10,14 @@ app = Flask("fever_prediction")
 
 @app.route('/',methods = ['POST'])
 def predict():
-    detai = (request.get_json())
+    detai =  (request.get_json())
     print(detai)
-    detail=json.loads(detai)
+    de=json.dumps(detai)
+    print(de)
+    detail = json.loads(de)
+    print(detail)
     deta= detail["list"]
+    print(deta)
     details = ast.literal_eval(deta)
     print(details,type(details))
 
