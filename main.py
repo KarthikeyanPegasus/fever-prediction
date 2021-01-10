@@ -1,4 +1,6 @@
 import pickle
+import json
+import ast
 from flask import Flask, request, jsonify
 from model_files.ml_model import fever_prediction
 
@@ -8,11 +10,34 @@ app = Flask("fever_prediction")
 
 @app.route('/',methods = ['POST'])
 def predict():
-    details = request.get_json()
-    fever = details[0]
-    pulse = details[1]
-    sugar = details[2]
-    dose = details[3]
+    detai = (request.get_json())
+    print(detai)
+    detail=json.loads(detai)
+    deta= detail["list"]
+    details = ast.literal_eval(deta)
+    print(details,type(details))
+
+    fevers = []
+    pulses = []
+    sugars = []
+    doses = []
+
+    fevers.append(details[0])
+    fevers.append(details[1])
+
+    pulses.append(details[2])
+    pulses.append(details[3])
+
+    sugars.append(details[4])
+    sugars.append(details[5])
+
+    doses.append(details[6])
+    doses.append(details[7])
+
+    fever = list([fevers])
+    pulse = list([pulses])
+    sugar = list([sugars])
+    dose = list([doses])
 
 
     with open('./model_files/fevermodel.bin','rb') as f_in:
