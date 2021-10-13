@@ -7,4 +7,4 @@ This Machine Learning Model uses the most basic Machine Learning Algorithm calle
 
 The Dataset is Collected and Maintained by me and thus it is not available even in kaggle or google dataset.
 
-This GIT rep is currently On-AIR in Heroku server
+This GIT rep is currently On-AIR in Heroku server as API
